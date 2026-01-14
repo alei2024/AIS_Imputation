@@ -1,0 +1,37 @@
+
+# AIS 2022-12 trajectory interpolation
+
+train:
+  epochs: 50
+  batch_size: 16
+  lr: 1.0e-3
+  itr_per_epoch: 1.0e+8
+
+diffusion:
+  layers: 4
+  channels: 64
+  nheads: 8
+  diffusion_embedding_dim: 128
+  beta_start: 0.0001
+  beta_end: 0.5
+  num_steps: 50
+  schedule: "quad"
+  is_linear: False
+
+model:
+  is_unconditional: 0
+  timeemb: 128
+  featureemb: 16
+  target_strategy: "random"
+
+data:
+  freq: "10min"
+  eval_length: 144
+  stride: 144
+  min_observed_ratio: 0.2
+  mmsi_keep_ratio: 1.0
+  max_ships: 0
+  max_windows_per_ship: 0
+  valid_ratio: 0.1
+  test_ratio: 0.1
+
